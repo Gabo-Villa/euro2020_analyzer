@@ -50,9 +50,6 @@ def xG_flowchart(match_id):
     fig.set_facecolor('w')
     ax.patch.set_facecolor('w')
 
-    # Set font
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
-
     mpl.rcParams['xtick.color'] = 'k'
     mpl.rcParams['ytick.color'] = 'k'
 
@@ -63,7 +60,7 @@ def xG_flowchart(match_id):
         plt.xticks([0,15,30,45,60,75,90,105,120])
 
     # Title and axis label
-    plt.title('xG Flow Chart', fontsize=30)
+    plt.title('xG Flow Chart', fontsize=30, fontweigth='bold')
     plt.xlabel('Minute', fontsize=20)
     plt.ylabel('xG', fontsize=20)
 

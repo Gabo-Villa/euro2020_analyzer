@@ -1,6 +1,5 @@
 streamlit
 statsbombpy
-os.path
 pathlib
 base64
 pandas

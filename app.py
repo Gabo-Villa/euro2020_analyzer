@@ -58,4 +58,4 @@ elif visualizations == 'Pass Network':
     pass_network(match_id)
 
 with st.sidebar.expander('About the project'):
-    st.write('Data visualization app to analyze the Euro 2020. All the data is provided by [Statsbomb](https://statsbomb.com/). Source code in the [GitHub Repository](https://github.com/Gabo-Villa/euro2020_analyzer)')
+    st.write('Data visualization app to analyze the Euro 2020. All the data is provided by [Statsbomb](https://statsbomb.com/). Source code in the [GitHub Repository](https://github.com/Gabo-Villa/euro2020_analyzer).')

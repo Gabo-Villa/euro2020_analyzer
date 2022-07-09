@@ -60,7 +60,7 @@ def xG_flowchart(match_id):
         plt.xticks([0,15,30,45,60,75,90,105,120])
 
     # Title and axis label
-    plt.title('xG Flow Chart', fontsize=30, fontweigth='bold')
+    plt.title('xG Flow Chart', fontsize=30, fontweight='bold')
     plt.xlabel('Minute', fontsize=20)
     plt.ylabel('xG', fontsize=20)
 

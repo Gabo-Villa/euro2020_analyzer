@@ -45,9 +45,6 @@ def shots_map(match_id):
     team2_shots_count = df_team2_goals.count()[0] + df_team2_non_goals.count()[0] - team2_owngoals_count
     team2_xG = round(df_team2.shot_statsbomb_xg.sum(), 2)
 
-    # Setfont
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
-
     # Plot team 1non-goal shots
     team1_non_goals = pitch.scatter(df_team1_non_goals.x, df_team1_non_goals.y,
                     s=(df_team1_non_goals.shot_statsbomb_xg * 1900) + 100,
@@ -83,9 +80,9 @@ def shots_map(match_id):
     p5 = Circle((70, -55), 15, fc="#697cd4", ec="k")
     ada.drawing_area.add_artist(p5)
     ax.add_artist(ada)
-    txt1 = ax.text(x=19, y=3, s='xG Value', color='k',
+    txt1 = ax.text(x=20, y=3, s='xG Value', color='k',
                     ha='center', va='center', fontsize=30)
-    txt2 = ax.text(x=14, y=8, s='Goal', color='k',
+    txt2 = ax.text(x=15, y=8, s='Goal', color='k',
                     ha='center', va='center', fontsize=30)
 
     txt3 = ax.text(x=50, y=-18, s=team1, color='#ba495c', fontweight='bold', 

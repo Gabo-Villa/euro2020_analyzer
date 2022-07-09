@@ -58,9 +58,6 @@ def goals(match_id):
                         title_height=0.1, title_space=0.02,
                         axis=False,
                         grid_height=0.83)
-        
-        # Set font
-        plt.rcParams['font.family'] = 'Franklin Gothic Medium'
                       
         # Plot the players
         sc1 = pitch.scatter(df_team1['x'], df_team1['y'], s=700, c='#ba495c', label=team1, ax=axs['pitch'])

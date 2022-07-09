@@ -81,9 +81,6 @@ def pass_network(match_id):
     fig, ax = pitch.draw(figsize=(14, 11), constrained_layout=True, tight_layout=False)
     fig.set_facecolor('w')
 
-    # Set font
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
-
     # Plot lines and nodes
     pass_lines = pitch.lines(df_passes_plot.x, df_passes_plot.y,
                              df_passes_plot.x_end, df_passes_plot.y_end, lw=df_passes_plot.width,

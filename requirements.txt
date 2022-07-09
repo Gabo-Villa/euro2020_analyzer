@@ -3,6 +3,6 @@ statsbombpy
 pathlib
 pandas
 matplotlib
-mplsoccer
+mplsoccer==1.0.7
 numpy
 mplcyberpunk

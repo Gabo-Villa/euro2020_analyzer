@@ -1,7 +1,6 @@
 streamlit
 statsbombpy
 pathlib
-base64
 pandas
 matplotlib
 mplsoccer

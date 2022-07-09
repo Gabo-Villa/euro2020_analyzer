@@ -58,14 +58,12 @@ def xT_players(match_id):
 
     team1, team2 = df_event.team_name.unique()
 
-    fig, ax = plt.subplots(figsize = (14,11), constrained_layout=True, tight_layout=False,)
-    # Set font
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
+    fig, ax = plt.subplots(figsize = (14,11), constrained_layout=True, tight_layout=False)
     # Plot the xT values
     barlist = ax.barh(df_plot['player'], df_plot['xT'])
     # Title and axis label
     ax.set_title('xT Players Performance', ha='center', fontsize=30, fontweight='bold')
-    plt.xlabel('xT', fontsize=15)
+    plt.xlabel('xT', fontsize=20)
 
     for label in ax.get_yticklabels():
         label.set(fontsize=15)

@@ -18,9 +18,7 @@ st.title('Euro 2020 Analyzer')
 # Code snippet from: pmbaumgartner.github.io/streamlitopedia/sizing-and-images.html
 @st.cache
 def img_to_bytes(img_path):
-    path = os.path.dirname(__file__)
-    euro_image = path + '/euro_2020.png'
-    img_bytes = Path(euro_image).read_bytes()
+    img_bytes = Path(img_path).read_bytes()
     encoded = base64.b64encode(img_bytes).decode()
     return encoded
 

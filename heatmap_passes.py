@@ -25,14 +25,8 @@ def heatmap_passes(match_id):
                           cut=4, cmap='Blues')
 
     # Title and team names
-    title = axs['title'].text(x=0.5, y=0.6, s='Heatmap\n(Passes locations)', fontsize=30, color='#000009',
-                                fontname='Franklin Gothic Medium',
-                                ha='center', va='center')
-    txt1 = axs['title'].text(x=0.23, y=0, s=team1, fontsize=30, color='#ba495c',
-                                fontname='DejaVu Sans', fontweight='bold',
-                                ha='center', va='center')
-    txt2 = axs['title'].text(x=0.77, y=0, s=team2, fontsize=30, color='#697cd4',
-                                fontname='DejaVu Sans', fontweight='bold',
-                                ha='center', va='center')
+    title = axs['title'].text(x=0.5, y=0.6, s='Heatmap\n(Passes locations)', fontsize=25, color='#000009', fontweight='bold', ha='center', va='center')
+    txt1 = axs['title'].text(x=0.23, y=0, s=team1, fontsize=30, color='#ba495c', fontweight='bold', ha='center', va='center')
+    txt2 = axs['title'].text(x=0.77, y=0, s=team2, fontsize=30, color='#697cd4', fontweight='bold', ha='center', va='center')
 
     st.pyplot(fig)

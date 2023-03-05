@@ -20,7 +20,7 @@ def xT_players(match_id):
     df_xT = df_event.loc[(df_event['type_name'] == 'Pass') | (df_event['type_name'] == 'Carry')][df_event['outcome_name'].isnull()]
     path = os.path.dirname(__file__)
     # xT grid from: github.com/mckayjohns/xT/blob/main/xT_Grid.csv
-    xT_grid = path +'/xT_Grid.csv'
+    xT_grid = path + '/xT_Grid.csv'
     
     xT_grid = pd.read_csv(xT_grid, header=None)
     xT_grid = np.array(xT_grid)

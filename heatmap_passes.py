@@ -1,6 +1,7 @@
 from mplsoccer import VerticalPitch, Sbopen
 import streamlit as st
 
+
 @st.cache_data
 def heatmap_passes(match_id):
     parser = Sbopen(dataframe=True)

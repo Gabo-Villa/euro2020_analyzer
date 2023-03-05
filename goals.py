@@ -13,7 +13,7 @@ def goals(match_id):
     df_event['player_id'] = df_event['player_id'].astype(int)
 
     # Period !=5 because the 5th period is the penalty shootout
-    df_goals = df_event.loc[df_event['outcome_name']=='Goal'][df_event['period'] != 5]
+    df_goals = df_event.loc[df_event['outcome_name'] == 'Goal'][df_event['period'] != 5]
     df_goals = df_goals.sort_values('minute')
 
     if len(df_goals) == 0:
@@ -21,8 +21,8 @@ def goals(match_id):
     else:
         goals = st.sidebar.selectbox(
         'Select a goal:',
-        df_goals['player_nickname'].loc[df_goals['match_id']==match_id] + ' ' + df_goals['minute'].astype(str).loc[df_goals['match_id']==match_id]
-                 + ':' + df_goals['second'].astype(str).loc[df_goals['match_id']==match_id]
+        df_goals['player_nickname'].loc[df_goals['match_id'] == match_id] + ' ' + df_goals['minute'].astype(str).loc[df_goals['match_id'] == match_id]
+                 + ':' + df_goals['second'].astype(str).loc[df_goals['match_id'] == match_id]
         )
 
         shot_id = df_goals['id'].loc[df_goals['player_nickname'] + ' ' + df_goals['minute'].astype(str) + ':' + df_goals['second'].astype(str) == goals]

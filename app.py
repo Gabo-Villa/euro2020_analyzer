@@ -11,8 +11,8 @@ from xT_players import xT_players
 from pass_network import pass_network
 from players_statistics import players_statistics
 
-st.set_page_config(page_title='Euro 2020 Analyzer', page_icon='⚽')
 
+st.set_page_config(page_title='Euro 2020 Analyzer', page_icon='⚽')
 st.title('Euro 2020 Analyzer')
 
 # Convert the image to bytes so that it can be displayed using an <img> HTML element

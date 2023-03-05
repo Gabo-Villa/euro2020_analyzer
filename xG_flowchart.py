@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.lines as mlines
+import matplotlib.patches as mpatches
 import mplcyberpunk
 from mplsoccer import Sbopen
-import matplotlib.patches as mpatches
-import matplotlib.lines as mlines
 import streamlit as st
 
 @st.cache_data

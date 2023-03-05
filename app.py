@@ -25,6 +25,7 @@ def img_to_bytes(img_path):
     encoded = base64.b64encode(img_bytes).decode()
     return encoded
 
+
 st.sidebar.markdown('''[<img src='data:image/png;base64,{}' class='img-fluid' width=140 height=140>](https://www.uefa.com/uefaeuro/history/seasons/2020/)'''.format(img_to_bytes("euro_2020.png")), unsafe_allow_html=True)
 
 categories = st.sidebar.selectbox(

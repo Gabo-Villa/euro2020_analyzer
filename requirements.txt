@@ -1,6 +1,6 @@
 streamlit
 pathlib
-base64
+pybase64
 pandas
 matplotlib
 mplsoccer

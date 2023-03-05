@@ -6,6 +6,7 @@ from matplotlib.colors import to_rgba
 import matplotlib.lines as mlines
 import streamlit as st
 
+
 def pass_network(match_id):
     parser = Sbopen(dataframe=True)
     events, related, freeze, tactics = parser.event(match_id)

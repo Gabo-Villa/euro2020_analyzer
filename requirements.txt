@@ -6,3 +6,4 @@ matplotlib
 mplsoccer
 numpy
 mplcyberpunk
+lxml

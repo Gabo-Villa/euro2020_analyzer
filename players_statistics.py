@@ -52,7 +52,6 @@ def players_statistics(tables):
     fig = plt.figure(figsize=(11,9))
     ax = plt.subplot()
 
-    color = color
     ncolumns = len(df.columns)
     nrows = df.shape[0]
 

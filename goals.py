@@ -3,6 +3,7 @@ import pandas as pd
 from mplsoccer import VerticalPitch, Sbopen
 import streamlit as st
 
+
 def goals(match_id):
     parser = Sbopen(dataframe=True)
     events, related, freeze, tactics = parser.event(match_id)

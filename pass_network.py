@@ -32,7 +32,7 @@ def pass_network(match_id):
                       (df_event.minute < first_sub_minute)]
 
     # Average locations for players
-    average_locs_and_count = df_passes.groupby('player_nickname').agg({'x': ['mean'], 'y': ['mean','count']})
+    average_locs_and_count = df_passes.groupby('player_nickname').agg({'x': ['mean'], 'y': ['mean', 'count']})
     average_locs_and_count.columns = ['x', 'y', 'pass_count']
     average_locs_and_count = average_locs_and_count.sort_values('pass_count', ascending=False)
 

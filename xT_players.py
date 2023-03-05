@@ -6,6 +6,7 @@ from mplsoccer import Sbopen
 import os.path
 import streamlit as st
 
+
 @st.cache_data
 def xT_players(match_id):
     parser = Sbopen(dataframe=True)

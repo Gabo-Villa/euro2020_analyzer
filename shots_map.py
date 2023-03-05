@@ -4,6 +4,7 @@ import streamlit as st
 from matplotlib.patches import Circle
 from mpl_toolkits.axes_grid1.anchored_artists import AnchoredDrawingArea
 
+
 @st.cache_data
 def shots_map(match_id):
     parser = Sbopen(dataframe=True)

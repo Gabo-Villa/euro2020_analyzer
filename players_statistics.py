@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from urllib.request import urlopen
 
+
 @st.cache_data
 def players_statistics(tables):
     if tables == 'Goals':

@@ -45,9 +45,9 @@ if categories == 'Matches':
 
     match = st.sidebar.selectbox(
     'Select a match:',
-    matches['match'].loc[matches['competition_stage_name']==competition_stage])
+    matches['match'].loc[matches['competition_stage_name'] == competition_stage])
 
-    match_id = int(matches['match_id'].loc[matches['match']==match])
+    match_id = int(matches['match_id'].loc[matches['match'] == match])
 
     visualizations = st.sidebar.selectbox(
     'Select a visualization:',

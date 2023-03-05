@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from mplsoccer import Pitch, Sbopen
 import streamlit as st
 from matplotlib.patches import Circle

@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import pandas as pd
 from mplsoccer import VerticalPitch, Sbopen
 import streamlit as st

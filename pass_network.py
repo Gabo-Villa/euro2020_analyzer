@@ -1,6 +1,5 @@
 import pandas as pd
 from mplsoccer import Pitch, Sbopen
-import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import to_rgba
 import matplotlib.lines as mlines

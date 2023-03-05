@@ -6,6 +6,7 @@ import mplcyberpunk
 from mplsoccer import Sbopen
 import streamlit as st
 
+
 @st.cache_data
 def xG_flowchart(match_id):
     parser = Sbopen(dataframe=True)

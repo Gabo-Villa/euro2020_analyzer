@@ -21,7 +21,7 @@ def players_statistics(tables):
         df = df.sort_values('CrdY', ascending=True)
         columns = ['Player', 'Team_img', 'Min', 'Fls', 'CrdY', 'CrdR']
         column_names = ['Player', 'Team', 'Minutes', 'Fouls', 'Yellow cards', 'Red cards']
-        color='#ba495c'
+        color = '#ba495c'
         title = 'Players with red card'
     elif tables == 'Assists':
         df = pd.read_html('https://fbref.com/en/share/vAHVp', header=1)[0]

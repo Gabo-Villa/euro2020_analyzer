@@ -75,4 +75,4 @@ elif categories == 'Players':
     st.pyplot(players_statistics(tables))
 
 with st.sidebar.expander('About the project'):
-    st.write('Data visualization app to analyze the Euro 2020. The data is provided by [Statsbomb](https://statsbomb.com/) and [API-FOOTBALL](https://www.api-football.com/). Source code in the [GitHub Repository](https://github.com/Gabo-Villa/euro2020_analyzer).')
+    st.write('Data visualization app to analyze the Euro 2020. All the data is provided by [Statsbomb](https://statsbomb.com/).')

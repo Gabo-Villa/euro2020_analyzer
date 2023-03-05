@@ -48,7 +48,7 @@ def xG_flowchart(match_id):
     team1_cumulative_xG = nums_cumulative_sum(team1_xG)
     team2_cumulative_xG = nums_cumulative_sum(team2_xG)
 
-    fig, ax = plt.subplots(figsize = (14,11), constrained_layout=True, tight_layout=False,)
+    fig, ax = plt.subplots(figsize = (14, 11), constrained_layout=True, tight_layout=False)
     fig.set_facecolor('w')
     ax.patch.set_facecolor('w')
 
@@ -57,18 +57,18 @@ def xG_flowchart(match_id):
 
     # The game lasts 90 minutes if there are 2 periods, if there is a 3th period the game lasts 120 minutes
     if 3 not in df['period']:
-        plt.xticks([0,15,30,45,60,75,90])
+        plt.xticks([0, 15, 30, 45, 60, 75, 90])
     else:
-        plt.xticks([0,15,30,45,60,75,90,105,120])
+        plt.xticks([0, 15, 30, 45, 60, 75, 90, 105, 120])
 
     # Title and axis label
-    plt.title('xG Flow Chart', fontsize=30, fontweight='bold')
-    plt.xlabel('Minute', fontsize=20)
-    plt.ylabel('xG', fontsize=20)
+    plt.title('xG Flow Chart', fontsize = 30, fontweight = 'bold')
+    plt.xlabel('Minute', fontsize = 20)
+    plt.ylabel('xG', fontsize = 20)
 
     # Plot the xG values
-    ax.step(x=team1_min, y=team1_cumulative_xG, linewidth=4, where='post', color='#ba495c')
-    ax.step(x=team2_min, y=team2_cumulative_xG, linewidth=4, where='post', color='#697cd4')
+    ax.step(x = team1_min, y = team1_cumulative_xG, linewidth = 4, where = 'post', color = '#ba495c')
+    ax.step(x = team2_min, y = team2_cumulative_xG, linewidth = 4, where = 'post', color = '#697cd4')
 
     for spine in ["top", "right"]:
         ax.spines[spine].set_visible(False)
@@ -76,22 +76,22 @@ def xG_flowchart(match_id):
     # Plot team 1 goals
     for x in range(len(team1_outcome)):
         if team1_outcome[x] == 'Goal':
-            ax.scatter(x=team1_min[x], y=team1_cumulative_xG[x], s=1000, color='#ba495c', marker='*')
+            ax.scatter(x = team1_min[x], y = team1_cumulative_xG[x], s = 1000, color = '#ba495c', marker = '*')
         else:
             pass
 
     # Plot team 2 goals
     for x in range(len(team2_outcome)):
         if team2_outcome[x] == 'Goal':
-            ax.scatter(x=team2_min[x], y=team2_cumulative_xG[x], s=1000, color='#697cd4', marker='*')
+            ax.scatter(x = team2_min[x], y = team2_cumulative_xG[x], s = 1000, color = '#697cd4', marker = '*')
         else:
             pass
 
     # Legend
-    team1_patch = mpatches.Patch(color='#ba495c', label=f'{team1}: {str(round(team1_cumulative_xG[-1],2))} xG')
-    team2_patch = mpatches.Patch(color='#697cd4', label=f'{team2}: {str(round(team2_cumulative_xG[-1],2))} xG')
-    goal_marker = mlines.Line2D([], [], color='w', marker='*', markersize=40, markeredgecolor='k', label='Goal')
-    ax.legend(handles=[team1_patch,team2_patch,goal_marker], fontsize=30, frameon = False)
+    team1_patch = mpatches.Patch(color = '#ba495c', label = f'{team1}: {str(round(team1_cumulative_xG[-1], 2))} xG')
+    team2_patch = mpatches.Patch(color = '#697cd4', label = f'{team2}: {str(round(team2_cumulative_xG[-1], 2))} xG')
+    goal_marker = mlines.Line2D([], [], color = 'w', marker = '*', markersize = 40, markeredgecolor = 'k', label = 'Goal')
+    ax.legend(handles = [team1_patch, team2_patch, goal_marker], fontsize = 30, frameon = False)
 
     mplcyberpunk.add_underglow()
 

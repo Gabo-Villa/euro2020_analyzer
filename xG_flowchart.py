@@ -1,14 +1,16 @@
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-from mplsoccer.statsbomb import read_event, EVENT_SLUG
 import mplcyberpunk
+from mplsoccer import Sbopen
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 import streamlit as st
 
+@st.cache_data
 def xG_flowchart(match_id):
-    event_dict = read_event(f'{EVENT_SLUG}/{match_id}.json', related_event_df=False, tactics_lineup_df=False, warn=False)
-    df = event_dict['event']
+    parser = Sbopen(dataframe=True)
+    events, related, freeze, tactics = parser.event(match_id)
+    df = events
     # Period !=5 because the 5th period is the penalty shootout
     df_no_penalties = df[df.period != 5]
     # There are included the shots and the own goals
@@ -50,9 +52,6 @@ def xG_flowchart(match_id):
     fig.set_facecolor('w')
     ax.patch.set_facecolor('w')
 
-    # Set font
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
-
     mpl.rcParams['xtick.color'] = 'k'
     mpl.rcParams['ytick.color'] = 'k'
 
@@ -63,7 +62,7 @@ def xG_flowchart(match_id):
         plt.xticks([0,15,30,45,60,75,90,105,120])
 
     # Title and axis label
-    plt.title('xG Flow Chart', fontsize=30)
+    plt.title('xG Flow Chart', fontsize=30, fontweight='bold')
     plt.xlabel('Minute', fontsize=20)
     plt.ylabel('xG', fontsize=20)
 
@@ -96,6 +95,4 @@ def xG_flowchart(match_id):
 
     mplcyberpunk.add_underglow()
 
-    st.pyplot(fig)
-
-    st.sidebar.write('[What are Expected Goals (xG)?](https://theanalyst.com/eu/2021/07/what-are-expected-goals-xg/)')
+    return fig

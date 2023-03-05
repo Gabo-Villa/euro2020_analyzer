@@ -1,13 +1,14 @@
 import matplotlib.pyplot as plt
-from mplsoccer import Pitch
-from mplsoccer.statsbomb import read_event, EVENT_SLUG
+from mplsoccer import Pitch, Sbopen
 import streamlit as st
 from matplotlib.patches import Circle
 from mpl_toolkits.axes_grid1.anchored_artists import AnchoredDrawingArea
 
+@st.cache_data
 def shots_map(match_id):
-    event_dict = read_event(f'{EVENT_SLUG}/{match_id}.json', related_event_df=False, tactics_lineup_df=False, warn=False)
-    df = event_dict['event']
+    parser = Sbopen(dataframe=True)
+    events, related, freeze, tactics = parser.event(match_id)
+    df = events
     # Period !=5 because the 5th period is the penalty shootout
     df_no_penalties = df[df.period != 5]
     # There are included the shots and the own goals
@@ -45,9 +46,6 @@ def shots_map(match_id):
     team2_shots_count = df_team2_goals.count()[0] + df_team2_non_goals.count()[0] - team2_owngoals_count
     team2_xG = round(df_team2.shot_statsbomb_xg.sum(), 2)
 
-    # Setfont
-    plt.rcParams['font.family'] = 'Franklin Gothic Medium'
-
     # Plot team 1non-goal shots
     team1_non_goals = pitch.scatter(df_team1_non_goals.x, df_team1_non_goals.y,
                     s=(df_team1_non_goals.shot_statsbomb_xg * 1900) + 100,
@@ -83,15 +81,15 @@ def shots_map(match_id):
     p5 = Circle((70, -55), 15, fc="#697cd4", ec="k")
     ada.drawing_area.add_artist(p5)
     ax.add_artist(ada)
-    txt1 = ax.text(x=19, y=3, s='xG Value', color='k',
+    txt1 = ax.text(x=26, y=4.5, s='xG Value', color='k',
                     ha='center', va='center', fontsize=30)
-    txt2 = ax.text(x=14, y=8, s='Goal', color='k',
+    txt2 = ax.text(x=19, y=11.5, s='Goal', color='k',
                     ha='center', va='center', fontsize=30)
 
     txt3 = ax.text(x=50, y=-18, s=team1, color='#ba495c', fontweight='bold', 
-                    fontname='DejaVu Sans', ha='right', va='center', fontsize=30)
+                    ha='right', va='center', fontsize=30)
     txt4 = ax.text(x=70, y=-18, s=team2, color='#697cd4', fontweight='bold', 
-                    fontname='DejaVu Sans', ha='left', va='center', fontsize=30)
+                    ha='left', va='center', fontsize=30)
     txt5 = ax.text(x=60, y=-12, s=f'{team1_goals_count}     Goals     {team2_goals_count}',
                     ha='center', va='center', fontsize=30)
     txt6 = ax.text(x=60, y=-7, s=f'{team1_shots_count}     Shots     {team2_shots_count}',
@@ -99,4 +97,4 @@ def shots_map(match_id):
     txt7 = ax.text(x=60, y=-2, s=f'{team1_xG}       xG       {team2_xG}',
                     ha='center', va='center', fontsize=30)
 
-    st.pyplot(fig)
+    return fig

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 
 
 @st.cache_data
@@ -60,9 +60,9 @@ def players_statistics(tables):
     df.drop("Squad", axis=1, inplace=True)
     uk_countries = ["eng", "nir", "sct", "wls"]
     df["Team_img"] = df["Flag_code"].apply(
-        lambda x: f"https://countryflagsapi.com/png/{x}"
+        lambda x: f"https://flagcdn.com/w160/{x}.jpg"
         if x not in uk_countries
-        else f"https://countryflagsapi.com/png/gb-{x}"
+        else f"https://flagcdn.com/w160/gb-{x}.jpg"
     )
     df.drop("Flag_code", axis=1, inplace=True)
     bold_columns = ["Gls", "CrdR", "Ast", "Saves"]
@@ -108,7 +108,10 @@ def players_statistics(tables):
                 flag_ax = fig.add_axes(
                     [ax_coords[0], ax_coords[1], ax_width, ax_height]
                 )
-                image = Image.open(urlopen(df["Team_img"].iloc[i]))
+                url = Request(
+                    f'{df["Team_img"].iloc[i]}', headers={"User-Agent": "Mozilla/5.0"}
+                )
+                image = Image.open(urlopen(url))
                 flag_ax.imshow(image)
                 flag_ax.axis("off")
             else:

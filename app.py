@@ -3,6 +3,7 @@ from mplsoccer import Sbopen
 import os.path
 from pathlib import Path
 import base64
+from lineups import lineups
 from shots_map import shots_map
 from heatmap_passes import heatmap_passes
 from xG_flowchart import xG_flowchart
@@ -58,6 +59,7 @@ if categories == "Matches":
     visualizations = st.sidebar.selectbox(
         "Select a visualization:",
         [
+            "Lineups",
             "Shots Map",
             "Heatmap (Passes locations)",
             "xG Flow Chart",
@@ -66,7 +68,9 @@ if categories == "Matches":
             "Pass Network",
         ],
     )
-    if visualizations == "Shots Map":
+    if visualizations == "Lineups":
+        st.pyplot(lineups(match_id))
+    elif visualizations == "Shots Map":
         st.pyplot(shots_map(match_id))
     elif visualizations == "Heatmap (Passes locations)":
         st.pyplot(heatmap_passes(match_id))
